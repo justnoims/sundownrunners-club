@@ -199,7 +199,7 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact/Join Form */
+        /* Form/Join Container Modification */
         .form-container {
             max-width: 600px;
             margin: 0 auto;
@@ -207,37 +207,6 @@
             padding: 3rem;
             border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-            color: #cbd5e1;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.8rem;
-            background-color: rgba(15, 12, 27, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            color: white;
-            font-size: 1rem;
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-orange);
-        }
-
-        .form-container .btn {
-            width: 100%;
-            margin-top: 1rem;
         }
 
         /* Footer & Social Buttons */
@@ -331,7 +300,6 @@
                 <br>
                 <p>Whether you're training for your first 5K, looking to hit a new 10K or half-marathon PR, or simply wanting to clear your head after a long day—there is a pack here waiting for you. We always wrap up our runs at local spots for drinks and social hangs.</p>
             </div>
-            <!-- Dynamic crew photo -->
             <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/441951515_122146950272183204_2723702435777080928_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFm_xO8n0V1V-77O69466_W&_nc_ohc=abcdef" alt="Sundown Runners Crew" class="about-img" onerror="this.src='https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=600'">
         </div>
     </section>
@@ -361,30 +329,16 @@
         </div>
     </section>
 
-    <!-- Join Form Section -->
+    <!-- Join Form Section (Connected to Google Forms) -->
     <section id="join">
         <h2>Join the Crew</h2>
-        <div class="form-container">
-            <form onsubmit="alert('Welcome to the club! Check your inbox soon.'); return false;">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" required placeholder="Juan Dela Cruz">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" required placeholder="juan@example.com">
-                </div>
-                <div class="form-group">
-                    <label for="pace">Your Current Comfortable Pace</label>
-                    <select id="pace">
-                        <option>Under 5:00 / km</option>
-                        <option>5:00 - 6:30 / km</option>
-                        <option>6:30 - 8:00 / km</option>
-                        <option>8:00+ / km or Run-Walk</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn">Get Club Updates</button>
-            </form>
+        <div class="form-container" style="text-align: center; padding: 3rem 1.5rem;">
+            <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #cbd5e1; max-width: 500px; margin-left: auto; margin-right: auto;">
+                Ready to chase the sunset with us? Click below to fill out our quick registration form. Your details will be instantly saved to our official Google Sheet roster!
+            </p>
+            <a href="https://forms.gle/gBnZxSCPsyZEdsBGA" target="_blank" class="btn" style="display: inline-block; font-size: 1.2rem; padding: 1rem 2.5rem; text-decoration: none;">
+                Sign Up via Google Forms
+            </a>
         </div>
     </section>
 
