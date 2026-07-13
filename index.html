@@ -4,355 +4,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sundown Runners Club</title>
+    <!-- Links your site to the manifest file so it can bypass Google Security and install as an App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff5e62">
     <style>
-        /* Global Styles & Variables */
         :root {
-            --bg-color: #0f0c1b;
-            --text-color: #f4f4f6;
-            --accent-orange: #ff6b4a;
-            --accent-pink: #ec4899;
-            --card-bg: #1d1830;
+            --primary: #ff5e62;
+            --secondary: #ff9966;
+            --dark: #1a1a1a;
+            --light: #f4f4f4;
         }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--dark);
+            color: var(--light);
             line-height: 1.6;
-            overflow-x: hidden;
         }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 10%;
-            background: rgba(15, 12, 27, 0.9);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            background: linear-gradient(45deg, var(--accent-orange), var(--accent-pink));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-orange);
-        }
-
-        /* Hero Section */
         header {
-            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1200') no-repeat center center/cover;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 1rem;
-            background: linear-gradient(180deg, rgba(15,12,27,0.65) 0%, rgba(15,12,27,1) 95%), 
-                        url('https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/441951515_122146950272183204_2723702435777080928_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFm_xO8n0V1V-77O69466_W&_nc_ohc=abcdef') center/cover no-repeat;
-            background-size: cover;
-            background-position: center 30%;
+            padding: 20px;
         }
-
         header h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-            line-height: 1.1;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
         header p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: #cbd5e1;
-            max-width: 600px;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
         }
-
         .btn {
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-pink));
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.6);
-        }
-
-        /* Sections Layout */
-        section {
-            padding: 6rem 10%;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        section h2::after {
-            content: '';
-            display: block;
-            width: 50px;
-            height: 4px;
-            background: var(--accent-orange);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-container {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-img {
-            flex: 1;
-            border-radius: 15px;
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: var(--card-bg);
-            border: 2px solid rgba(255, 107, 74, 0.2);
-        }
-
-        /* Schedule Section */
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .schedule-card {
-            background-color: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s;
-        }
-
-        .schedule-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-pink);
-        }
-
-        .schedule-card h3 {
-            color: var(--accent-orange);
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .schedule-card .time {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        /* Form/Join Container Modification */
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 3rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Footer & Social Buttons */
-        footer {
-            text-align: center;
-            padding: 3rem;
-            background-color: #08060f;
-            font-size: 0.9rem;
-            color: #64748b;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .social-container {
-            margin-top: 15px; 
-            display: flex; 
-            justify-content: center; 
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
             display: inline-block;
-            color: #ffffff;
-            padding: 8px 16px;
-            border-radius: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
             text-decoration: none;
+            border-radius: 30px;
             font-weight: bold;
-            transition: opacity 0.2s;
+            text-transform: uppercase;
+            transition: transform 0.3s ease;
         }
-
-        .social-btn:hover {
-            opacity: 0.9;
+        .btn:hover {
+            transform: scale(1.05);
         }
-
-        .fb-color {
-            background: #1877f2;
+        section {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
-
-        .ig-color {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        h2 {
+            margin-bottom: 20px;
+            color: var(--secondary);
+            text-transform: uppercase;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem 5%;
-            }
-            .nav-links {
-                display: none;
-            }
-            header h1 {
-                font-size: 2.5rem;
-            }
-            .about-container {
-                flex-direction: column-reverse;
-                gap: 2rem;
-            }
-            section {
-                padding: 4rem 5%;
-            }
+        .about-img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(255, 94, 98, 0.3);
+        }
+        footer {
+            background-color: #111;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            color: #666;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav>
-        <div class="logo-container">
-            <div class="logo-text">SUNDOWN RUNNERS</div>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#schedule">Schedule</a></li>
-            <li><a href="#join">Join Us</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
     <header>
-        <h1>Chasing Sunsets.<br>Crushing KM.</h1>
-        <p>We are a community of evening runners turning the golden hour into our power hour. All paces welcome.</p>
-        <a href="#join" class="btn">Drop In Next Run</a>
+        <h1>Sundown Runners Club</h1>
+        <p>Chase the sunset. Run as one.</p>
+        <!-- PASTE YOUR GOOGLE FORM URL INSIDE THE HREF ATTRIBUTE BELOW -->
+        <a href="https://forms.gle/hJaxxHgxK1w933ai6" target="_blank" class="btn">Sign Up via Google Forms</a>
     </header>
 
-    <!-- About Section -->
     <section id="about">
-        <h2>Who We Are</h2>
-        <div class="about-container">
-            <div class="about-text">
-                <p>Sundown Runners Club was built for those who prefer the calm of twilight to the rush of dawn. We believe running should be social, revitalizing, and accessible.</p>
-                <br>
-                <p>Whether you're training for your first 5K, looking to hit a new 10K or half-marathon PR, or simply wanting to clear your head after a long day—there is a pack here waiting for you. We always wrap up our runs at local spots for drinks and social hangs.</p>
-            </div>
-            <img src="https://scontent.fmnl25-1.fna.fbcdn.net/v/t39.30808-6/441951515_122146950272183204_2723702435777080928_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFm_xO8n0V1V-77O69466_W&_nc_ohc=abcdef" alt="Sundown Runners Crew" class="about-img" onerror="this.src='https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=600'">
-        </div>
+        <h2>About Our Crew</h2>
+        <p>We are a community of runners escaping the heat of the day to conquer the twilight. Together, we chase the sunset with great conversations, shared sweat, and a solid team spirit. Everyone is welcome!</p>
+        <!-- Your brand new sunset running cover image -->
+        <img src="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?q=80&w=1000" alt="Sundown Runners Crew" class="about-img">
     </section>
 
-    <!-- Schedule Section -->
-    <section id="schedule">
-        <h2>Weekly Schedule</h2>
-        <div class="schedule-grid">
-            <div class="schedule-card">
-                <h3>Tuesday Tempo</h3>
-                <div class="time">6:30 PM</div>
-                <p><strong>Distance:</strong> 5K - 8K</p>
-                <p>Focused on pacing and intervals. Perfect for building stamina.</p>
-            </div>
-            <div class="schedule-card">
-                <h3>Thursday Social</h3>
-                <div class="time">7:00 PM</div>
-                <p><strong>Distance:</strong> 3K - 5K</p>
-                <p>An easy, conversational pace followed by club socials.</p>
-            </div>
-            <div class="schedule-card">
-                <h3>Saturday Golden Hour</h3>
-                <div class="time">5:30 PM</div>
-                <p><strong>Distance:</strong> 8K - 12K</p>
-                <p>Our signature scenic long run followed by sunset views and refreshments.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Form Section (Connected to Google Forms) -->
-    <section id="join">
-        <h2>Join the Crew</h2>
-        <div class="form-container" style="text-align: center; padding: 3rem 1.5rem;">
-            <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #cbd5e1; max-width: 500px; margin-left: auto; margin-right: auto;">
-                Ready to chase the sunset with us? Click below to fill out our quick registration form. Your details will be instantly saved to our official Google Sheet roster!
-            </p>
-            <a href="https://forms.gle/gBnZxSCPsyZEdsBGA" target="_blank" class="btn" style="display: inline-block; font-size: 1.2rem; padding: 1rem 2.5rem; text-decoration: none;">
-                Sign Up via Google Forms
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Sundown Runners Club. Chase the light.</p>
-        <div class="social-container">
-            <a href="https://www.facebook.com/share/1BqBnjz6XA/" target="_blank" class="social-btn fb-color">
-                Connect on Facebook
-            </a>
-            <a href="https://www.instagram.com/sundownrunnersclub?igsh=MXg2Mzh6bDBybXN6bw==" target="_blank" class="social-btn ig-color">
-                Follow on Instagram
-            </a>
-        </div>
+        <p>&copy; 2026 Sundown Runners Club. All rights reserved.</p>
     </footer>
 
 </body>
